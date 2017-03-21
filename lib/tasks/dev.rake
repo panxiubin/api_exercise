@@ -1,7 +1,7 @@
 namespace :dev do
   task :fetch_city => :environment do
     puts "Fetch city data..."
-    response = RestClient.get "http://v.juhe.cn/weather/citys", :params => { :key => "a12175bc38fadcd7bf7fda88b75c7d93" }
+    response = RestClient.get "http://v.juhe.cn/weather/citys", :params => { :key => JUHE_CONFIG["api_key"] }
     data = JSON.parse(response.body)
 
     data["result"].each do |c|
