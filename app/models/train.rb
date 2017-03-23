@@ -16,4 +16,6 @@ class Train < ApplicationRecord
   def available_seats
     return SEATS - self.reservations.pluck(:seat_number)
   end
+
+  mount_uploader :train_logo, TrainLogoUploader
 end
