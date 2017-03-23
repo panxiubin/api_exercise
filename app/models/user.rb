@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   def generate_authentication_token
     self.authentication_token = Devise.friendly_token
   end
-  
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -13,5 +13,6 @@ class User < ActiveRecord::Base
 
   has_many :reservations
 
-
+  mount_uploader :avatar, AvatarUploader
+  
 end
